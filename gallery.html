@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Mahfil-e-Motijheel Heritage Resort, Murshidabad</title>
+<meta name="description" content="A visual journey through Mahfil-e-Motijheel — rooms, dining, gardens, river, and the living heritage of Nawabi Murshidabad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0d1e35;--navy-deep:#081426;--gold:#c4973e;--gold-light:#ddb96b;--gold-pale:#f6edd9;--gold-shimmer:#e8c97a;
+  --cream:#faf7f2;--white:#ffffff;--charcoal:#272727;--mid-gray:#6a6a6a;--light-gray:#9a9a9a;--border:#e4ddd4;
+  --font-display:'Playfair Display',Georgia,serif;--font-body:'DM Sans',system-ui,sans-serif;--font-accent:'Lora',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);line-height:1.6;font-size:15px;overflow-x:hidden;}
+.page-loader{position:fixed;inset:0;background:var(--navy-deep);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity 0.6s ease,visibility 0.6s ease;}
+.page-loader.done{opacity:0;visibility:hidden;}
+.loader-logo{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--white);opacity:0;transform:translateY(12px);animation:lFI 0.7s 0.2s forwards;}
+.loader-tagline{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);opacity:0;animation:lFI 0.7s 0.5s forwards;}
+.loader-bar{width:140px;height:1px;background:rgba(255,255,255,0.15);position:relative;overflow:hidden;opacity:0;animation:lFI 0.4s 0.6s forwards;}
+.loader-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);animation:lS 1.2s 0.7s forwards;}
+@keyframes lFI{to{opacity:1;transform:translateY(0);}}@keyframes lS{to{left:200%;}}
+.top-bar{background:var(--navy-deep);color:rgba(255,255,255,0.6);font-size:11.5px;display:flex;justify-content:space-between;align-items:center;padding:9px 48px;}
+.top-bar a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.top-bar a:hover{color:var(--gold-light);}
+.top-bar-links{display:flex;gap:28px;align-items:center;}
+.top-bar-divider{width:1px;height:12px;background:rgba(255,255,255,0.15);}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;transition:box-shadow 0.3s;}
+nav.scrolled{box-shadow:0 4px 24px rgba(13,30,53,0.08);}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0;}
+.logo-emblem{width:46px;height:46px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.logo-emblem::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);opacity:0.4;}
+.logo-emblem svg{width:22px;height:22px;fill:var(--gold-light);}
+.logo-text .brand{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--navy);}
+.logo-text .tagline{font-size:9.5px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;font-weight:500;position:relative;padding-bottom:3px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.btn-book{background:var(--navy);color:var(--white);border:none;padding:11px 24px;font-size:12px;font-family:var(--font-body);font-weight:500;letter-spacing:0.09em;text-transform:uppercase;text-decoration:none;transition:background 0.25s;border-radius:2px;display:inline-block;}
+.btn-book:hover{background:var(--gold);}
+.page-hero{position:relative;height:62vh;min-height:440px;overflow:hidden;display:flex;align-items:flex-end;}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG6.jpg');}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,20,38,0.85) 0%,rgba(8,20,38,0.4) 60%,rgba(8,20,38,0.15) 100%);}
+.page-hero-overlay-bottom{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,38,0.7) 0%,transparent 50%);}
+.page-hero-content{position:relative;z-index:2;padding:0 96px 80px;color:var(--white);}
+.page-hero-eyebrow{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:14px;opacity:0;transform:translateY(12px);animation:hI 0.8s 0.3s forwards;}
+.page-hero-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--gold-light);}
+.page-hero-title{font-family:var(--font-display);font-size:clamp(40px,5.5vw,68px);font-weight:400;line-height:1.1;opacity:0;transform:translateY(16px);animation:hI 0.9s 0.5s forwards;}
+.page-hero-title em{font-style:italic;color:var(--gold-light);}
+@keyframes hI{to{opacity:1;transform:translateY(0);}}
+.breadcrumb{background:var(--cream);padding:14px 96px;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;font-size:12px;color:var(--light-gray);}
+.breadcrumb a{color:var(--light-gray);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb .sep{opacity:0.4;}
+.breadcrumb .current{color:var(--navy);font-weight:500;}
+.section{padding:108px 96px;}
+.section-narrow{max-width:1160px;margin:0 auto;}
+.eyebrow{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.section-title{font-family:var(--font-display);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.13;color:var(--navy);margin-bottom:22px;}
+.section-lead{font-size:16px;color:var(--mid-gray);line-height:1.85;max-width:600px;font-weight:300;font-family:var(--font-accent);font-style:italic;}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;gap:4px;margin-top:48px;flex-wrap:wrap;}
+.filter-tab{font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;border:1px solid var(--border);cursor:pointer;background:var(--white);color:var(--mid-gray);transition:all 0.25s;font-family:var(--font-body);}
+.filter-tab:hover{border-color:var(--gold);color:var(--gold);}
+.filter-tab.active{background:var(--navy);border-color:var(--navy);color:var(--white);}
+
+/* MASONRY GALLERY */
+.gallery-masonry{columns:3;gap:10px;margin-top:32px;}
+.gallery-item{break-inside:avoid;margin-bottom:10px;position:relative;overflow:hidden;cursor:pointer;display:block;}
+.gallery-item img{width:100%;display:block;transition:transform 0.5s ease;}
+.gallery-item:hover img{transform:scale(1.04);}
+.gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,38,0.7) 0%,transparent 55%);opacity:0;transition:opacity 0.35s;}
+.gallery-item:hover .gallery-item-overlay{opacity:1;}
+.gallery-item-label{position:absolute;bottom:16px;left:18px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);opacity:0;transform:translateY(8px);transition:opacity 0.35s,transform 0.35s;}
+.gallery-item:hover .gallery-item-label{opacity:1;transform:translateY(0);}
+
+/* FEATURED MOSAIC */
+.featured-mosaic{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:340px 260px;gap:10px;margin-top:60px;}
+.mosaic-main{grid-row:1/3;background-size:cover;background-position:center;background-image:url('https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG36.jpg');position:relative;overflow:hidden;cursor:pointer;}
+.mosaic-main:hover .gallery-item-overlay{opacity:1;}
+.mosaic-sub{background-size:cover;background-position:center;position:relative;overflow:hidden;cursor:pointer;}
+.mosaic-sub:nth-child(2){background-image:url('https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG_8649.jpg');}
+.mosaic-sub:nth-child(3){background-image:url('https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic9.jpg');}
+.mosaic-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,38,0.6) 0%,transparent 55%);opacity:0;transition:opacity 0.35s;}
+.mosaic-main:hover .mosaic-item-overlay,.mosaic-sub:hover .mosaic-item-overlay{opacity:1;}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(8,20,38,0.96);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s;}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox-img{max-width:90vw;max-height:85vh;object-fit:contain;display:block;}
+.lightbox-close{position:absolute;top:28px;right:36px;font-size:28px;color:rgba(255,255,255,0.6);cursor:pointer;background:none;border:none;transition:color 0.2s;line-height:1;}
+.lightbox-close:hover{color:var(--gold-light);}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:32px;color:rgba(255,255,255,0.5);cursor:pointer;background:none;border:none;padding:12px 20px;transition:color 0.2s;line-height:1;}
+.lightbox-nav:hover{color:var(--gold-light);}
+.lb-prev{left:20px;}
+.lb-next{right:20px;}
+.lightbox-caption{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+
+/* CTA */
+.gallery-cta{background:var(--navy-deep);text-align:center;padding:88px 96px;}
+.gallery-cta h2{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:400;color:var(--white);margin-bottom:16px;}
+.gallery-cta p{font-size:15px;color:rgba(255,255,255,0.55);font-family:var(--font-accent);font-style:italic;max-width:480px;margin:0 auto 36px;}
+.btn-primary{background:var(--gold);color:var(--white);border:none;padding:15px 36px;font-family:var(--font-body);font-size:12.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:background 0.25s,transform 0.2s;border-radius:2px;display:inline-block;}
+.btn-primary:hover{background:var(--gold-shimmer);transform:translateY(-2px);}
+
+footer{background:var(--navy-deep);color:rgba(255,255,255,0.65);padding:72px 96px 36px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.footer-brand .brand{font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--white);margin-bottom:6px;}
+.footer-brand .tagline-footer{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.footer-brand p{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,0.45);max-width:270px;}
+.footer-col h4{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:22px;font-weight:500;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.footer-col ul li a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13.5px;transition:color 0.2s,padding-left 0.2s;display:block;}
+.footer-col ul li a:hover{color:var(--gold-light);padding-left:4px;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,0.28);}
+.footer-social{display:flex;gap:14px;}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:border-color 0.25s,color 0.25s,transform 0.2s;}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+
+@media(prefers-reduced-motion:no-preference){
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.75s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+}
+@media(max-width:1024px){
+  nav,.top-bar,.breadcrumb{padding-left:32px;padding-right:32px;}
+  .section{padding:80px 40px;}
+  .page-hero-content{padding:0 48px 64px;}
+  .gallery-masonry{columns:2;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px;}
+  footer{padding-left:40px;padding-right:40px;}
+}
+@media(max-width:768px){
+  .top-bar{display:none;}
+  nav{padding:0 24px;height:64px;}
+  .nav-links{display:none;}
+  .section{padding:64px 24px;}
+  .breadcrumb{padding:12px 24px;}
+  .page-hero-content{padding:0 24px 56px;}
+  .gallery-masonry{columns:1;}
+  .featured-mosaic{grid-template-columns:1fr;grid-template-rows:auto;}
+  .mosaic-main{height:300px;}
+  .mosaic-sub{height:220px;}
+  .gallery-cta{padding:60px 24px;}
+  .footer-top{grid-template-columns:1fr;gap:36px;}
+  footer{padding:56px 24px 28px;}
+  .footer-bottom{flex-direction:column;gap:20px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-loader" id="pageLoader">
+  <div class="loader-logo">Mahfil-e-Motijheel</div>
+  <div class="loader-tagline">Heritage Resort · Murshidabad</div>
+  <div class="loader-bar"></div>
+</div>
+
+<div class="top-bar">
+  <span>Motijheel, Lalbagh, Murshidabad, West Bengal 742149</span>
+  <div class="top-bar-links">
+    <a href="tel:+918001365365">+91 8001 365 365</a>
+    <div class="top-bar-divider"></div>
+    <a href="mailto:booking@motijheelpark.com">booking@motijheelpark.com</a>
+    <div class="top-bar-divider"></div>
+    <a href="https://www.instagram.com/mahfilemotijheel" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/share/16fXpfbonL/" target="_blank">Facebook</a>
+  </div>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-emblem"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 8.5 L15.8 12.5 L17.9 19 L12 15.2 L6.1 19 L8.2 12.5 L3 8.5 L9.5 8.5 Z"/></svg></div>
+    <div class="logo-text"><div class="brand">Mahfil-e-Motijheel</div><div class="tagline">Heritage Resort · Murshidabad</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="room.html">Rooms</a></li>
+    <li><a href="service.html">Experiences</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a href="https://motijheelpark.com/hotel/booking" class="btn-book">Book a Stay</a></div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-overlay-bottom"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Visual Journey</div>
+    <h1 class="page-hero-title">Motijheel Through<br>the <em>Lens</em></h1>
+  </div>
+</section>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span><span class="current">Gallery</span>
+</div>
+
+<!-- GALLERY -->
+<section class="section">
+  <div class="section-narrow">
+    <div class="fade-up">
+      <div class="eyebrow">Photography</div>
+      <h2 class="section-title">Every Frame a Memory</h2>
+      <p class="section-lead">Rooms, gardens, the river, the dining room, the quiet corridor — Mahfil-e-Motijheel is a place that rewards those who look.</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="rooms">Rooms &amp; Suites</button>
+      <button class="filter-tab" data-filter="grounds">Gardens &amp; Grounds</button>
+      <button class="filter-tab" data-filter="dining">Dining</button>
+      <button class="filter-tab" data-filter="river">River &amp; Boats</button>
+      <button class="filter-tab" data-filter="events">Events</button>
+    </div>
+
+    <!-- FEATURED MOSAIC -->
+    <div class="featured-mosaic fade-up">
+      <div class="mosaic-main" onclick="openLb(0)">
+        <div class="mosaic-item-overlay"></div>
+      </div>
+      <div class="mosaic-sub" onclick="openLb(1)">
+        <div class="mosaic-item-overlay"></div>
+      </div>
+      <div class="mosaic-sub" onclick="openLb(2)">
+        <div class="mosaic-item-overlay"></div>
+      </div>
+    </div>
+
+    <!-- MASONRY -->
+    <div class="gallery-masonry" id="galleryMasonry">
+
+      <div class="gallery-item" data-cat="rooms" onclick="openLb(3)">
+        <img src="https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic06.jpg" alt="Deluxe Room" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Deluxe Room</div>
+      </div>
+
+      <div class="gallery-item" data-cat="grounds" onclick="openLb(4)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG31.jpg" alt="Resort Gardens" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Gardens</div>
+      </div>
+
+      <div class="gallery-item" data-cat="rooms" onclick="openLb(5)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG17.jpg" alt="Super Deluxe Room" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Super Deluxe Room</div>
+      </div>
+
+      <div class="gallery-item" data-cat="river" onclick="openLb(6)">
+        <img src="https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic9.jpg" alt="Bhagirathi River" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Bhagirathi</div>
+      </div>
+
+      <div class="gallery-item" data-cat="grounds" onclick="openLb(7)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG10.jpg" alt="Resort Exterior" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Exterior</div>
+      </div>
+
+      <div class="gallery-item" data-cat="rooms" onclick="openLb(8)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG49.jpg" alt="Suite Room" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Suite Room</div>
+      </div>
+
+      <div class="gallery-item" data-cat="grounds" onclick="openLb(9)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG7.jpg" alt="Resort Grounds" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">The Grounds</div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" onclick="openLb(10)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG36.jpg" alt="Event Setup" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Events</div>
+      </div>
+
+      <div class="gallery-item" data-cat="dining" onclick="openLb(11)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG_8649.jpg" alt="Moti Mahal Dining" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Moti Mahal</div>
+      </div>
+
+      <div class="gallery-item" data-cat="river" onclick="openLb(12)">
+        <img src="https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic14.jpg" alt="River View" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">River View</div>
+      </div>
+
+      <div class="gallery-item" data-cat="grounds" onclick="openLb(13)">
+        <img src="https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic11.jpg" alt="Heritage Architecture" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">Heritage Architecture</div>
+      </div>
+
+      <div class="gallery-item" data-cat="river" onclick="openLb(14)">
+        <img src="https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG9.jpg" alt="House Boat" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-label">House Boat</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="gallery-cta">
+  <h2>Come and See for Yourself</h2>
+  <p>No photograph can fully capture the quality of light at Motijheel in the early morning. Some things must be experienced.</p>
+  <a href="https://motijheelpark.com/hotel/booking" class="btn-primary">Reserve Your Stay</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lightbox-close" onclick="closeLbBtn()">&times;</button>
+  <button class="lightbox-nav lb-prev" onclick="navLb(-1,event)">&#8249;</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="">
+  <button class="lightbox-nav lb-next" onclick="navLb(1,event)">&#8250;</button>
+  <div class="lightbox-caption" id="lbCaption"></div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><div class="brand">Mahfil-e-Motijheel</div><div class="tagline-footer">Heritage Resort · Est. Murshidabad</div><p>A resort woven into the living history of Nawabi Bengal — where every gathering becomes a cherished memory.</p></div>
+    <div class="footer-col"><h4>Explore</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="room.html">Rooms &amp; Suites</a></li><li><a href="service.html">Dining</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Location</a></li></ul></div>
+    <div class="footer-col"><h4>Plan Your Stay</h4><ul><li><a href="https://motijheelpark.com/hotel/booking">Book Online</a></li><li><a href="contact.html">Group Bookings</a></li><li><a href="service.html">Events &amp; Parties</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="Privacy Policy.html">Privacy Policy</a></li><li><a href="Terms & Condition.html">Terms &amp; Conditions</a></li><li><a href="contact.html">Support</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mahfil-e-Motijheel. All rights reserved. Developed by <a href="https://insighthms.com/" style="color:var(--gold);text-decoration:none;">Insight Software</a>.</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mahfilemotijheel" target="_blank" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://www.facebook.com/share/16fXpfbonL/" target="_blank" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://wa.me/918001365365" target="_blank" aria-label="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('pageLoader').classList.add('done');},1400);});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+const observer=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');observer.unobserve(en.target);}});},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// Filter tabs
+document.querySelectorAll('.filter-tab').forEach(tab=>{
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+    this.classList.add('active');
+    const f=this.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item=>{
+      if(f==='all'||item.dataset.cat===f){item.style.display='';}
+      else{item.style.display='none';}
+    });
+  });
+});
+
+// Lightbox
+const lbImages=[
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG36.jpg',cap:'Gardens & Grounds'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG_8649.jpg',cap:'Moti Mahal'},
+  {src:'https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic9.jpg',cap:'River View'},
+  {src:'https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic06.jpg',cap:'Deluxe Room'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG31.jpg',cap:'Resort Gardens'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG17.jpg',cap:'Super Deluxe Room'},
+  {src:'https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic9.jpg',cap:'Bhagirathi'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG10.jpg',cap:'Resort Exterior'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG49.jpg',cap:'Suite Room'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG7.jpg',cap:'The Grounds'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG36.jpg',cap:'Events'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG_8649.jpg',cap:'Moti Mahal'},
+  {src:'https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic14.jpg',cap:'River View'},
+  {src:'https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic11.jpg',cap:'Heritage Architecture'},
+  {src:'https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG9.jpg',cap:'House Boat'},
+];
+let curIdx=0;
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lbImg');
+const lbCap=document.getElementById('lbCaption');
+function openLb(i){curIdx=i;lbImg.src=lbImages[i].src;lbCap.textContent=lbImages[i].cap;lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLbBtn(){lb.classList.remove('open');document.body.style.overflow='';}
+function closeLb(e){if(e.target===lb){closeLbBtn();}}
+function navLb(d,e){e.stopPropagation();curIdx=(curIdx+d+lbImages.length)%lbImages.length;lbImg.src=lbImages[curIdx].src;lbCap.textContent=lbImages[curIdx].cap;}
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLbBtn();if(e.key==='ArrowLeft')navLb(-1,{stopPropagation:()=>{}});if(e.key==='ArrowRight')navLb(1,{stopPropagation:()=>{}});});
+</script>
+</body>
+</html>
+HTMLEOF
+echo "gallery.html done"

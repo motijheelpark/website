@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Directions | Mahfil-e-Motijheel Heritage Resort, Murshidabad</title>
+<meta name="description" content="Reach Mahfil-e-Motijheel in Murshidabad. Get directions, contact us for bookings, group events, and enquiries. We'd love to welcome you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0d1e35;--navy-deep:#081426;--navy-mid:#183356;
+  --gold:#c4973e;--gold-light:#ddb96b;--gold-pale:#f6edd9;--gold-shimmer:#e8c97a;
+  --cream:#faf7f2;--white:#ffffff;--charcoal:#272727;--mid-gray:#6a6a6a;
+  --light-gray:#9a9a9a;--border:#e4ddd4;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-accent:'Lora',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);line-height:1.6;font-size:15px;overflow-x:hidden;}
+
+/* ── LOADER ── */
+.page-loader{position:fixed;inset:0;background:var(--navy-deep);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity 0.6s ease,visibility 0.6s ease;}
+.page-loader.done{opacity:0;visibility:hidden;}
+.loader-logo{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--white);letter-spacing:0.04em;opacity:0;transform:translateY(12px);animation:loaderFadeIn 0.7s 0.2s forwards;}
+.loader-tagline{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);opacity:0;animation:loaderFadeIn 0.7s 0.5s forwards;}
+.loader-bar{width:140px;height:1px;background:rgba(255,255,255,0.15);position:relative;overflow:hidden;opacity:0;animation:loaderFadeIn 0.4s 0.6s forwards;}
+.loader-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);animation:loaderScan 1.2s 0.7s ease-in-out forwards;}
+@keyframes loaderFadeIn{to{opacity:1;transform:translateY(0);}}
+@keyframes loaderScan{to{left:200%;}}
+
+/* ── TOP BAR ── */
+.top-bar{background:var(--navy-deep);color:rgba(255,255,255,0.6);font-size:11.5px;letter-spacing:0.04em;display:flex;justify-content:space-between;align-items:center;padding:9px 48px;}
+.top-bar a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.top-bar a:hover{color:var(--gold-light);}
+.top-bar-links{display:flex;gap:28px;align-items:center;}
+.top-bar-divider{width:1px;height:12px;background:rgba(255,255,255,0.15);}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;transition:box-shadow 0.3s ease;}
+nav.scrolled{box-shadow:0 4px 24px rgba(13,30,53,0.08);}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0;}
+.logo-emblem{width:46px;height:46px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.logo-emblem::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);opacity:0.4;}
+.logo-emblem svg{width:22px;height:22px;fill:var(--gold-light);}
+.logo-text{line-height:1.2;}
+.logo-text .brand{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--navy);letter-spacing:0.01em;}
+.logo-text .tagline{font-size:9.5px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;font-weight:500;position:relative;padding-bottom:3px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-cta{display:flex;align-items:center;gap:12px;}
+.btn-book{background:var(--navy);color:var(--white);border:none;padding:11px 24px;font-size:12px;font-family:var(--font-body);font-weight:500;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.25s,transform 0.2s;border-radius:2px;display:inline-block;}
+.btn-book:hover{background:var(--gold);transform:translateY(-1px);}
+
+/* Mobile nav toggle */
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--navy);transition:all 0.3s;}
+
+/* ── PAGE HERO ── */
+.page-hero{position:relative;height:62vh;min-height:440px;overflow:hidden;display:flex;align-items:flex-end;}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('https://motijheelpark.com/LA%20MISHIKHA%20PHOTO/IMG_8649.jpg');}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,20,38,0.88) 0%,rgba(8,20,38,0.45) 60%,rgba(8,20,38,0.2) 100%);}
+.page-hero-overlay-bottom{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,38,0.72) 0%,transparent 50%);}
+.page-hero-content{position:relative;z-index:2;padding:0 96px 80px;color:var(--white);}
+.page-hero-eyebrow{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:14px;opacity:0;transform:translateY(12px);animation:heroIn 0.8s 0.3s forwards;}
+.page-hero-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--gold-light);}
+.page-hero-title{font-family:var(--font-display);font-size:clamp(40px,5.5vw,68px);font-weight:400;line-height:1.1;opacity:0;transform:translateY(16px);animation:heroIn 0.9s 0.5s forwards;}
+.page-hero-title em{font-style:italic;color:var(--gold-light);}
+@keyframes heroIn{to{opacity:1;transform:translateY(0);}}
+
+/* ── BREADCRUMB ── */
+.breadcrumb{background:var(--cream);padding:14px 96px;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;font-size:12px;color:var(--light-gray);}
+.breadcrumb a{color:var(--light-gray);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb .sep{opacity:0.4;}
+.breadcrumb .current{color:var(--navy);font-weight:500;}
+
+/* ── SECTIONS ── */
+.section{padding:108px 96px;}
+.section-narrow{max-width:1160px;margin:0 auto;}
+.eyebrow{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.section-title{font-family:var(--font-display);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.13;color:var(--navy);margin-bottom:22px;}
+.section-lead{font-size:16px;color:var(--mid-gray);line-height:1.85;max-width:600px;font-weight:300;font-family:var(--font-accent);font-style:italic;}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.stagger{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease;}
+.stagger.visible{opacity:1;transform:translateY(0);}
+.stagger.visible > *:nth-child(1){transition-delay:0.05s;}
+.stagger.visible > *:nth-child(2){transition-delay:0.15s;}
+.stagger.visible > *:nth-child(3){transition-delay:0.25s;}
+
+/* ── CONTACT GRID LAYOUT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:start;}
+
+/* ── CONTACT SIDEBAR ── */
+.contact-sidebar{}
+.contact-intro{font-size:16px;color:var(--mid-gray);line-height:1.9;font-family:var(--font-accent);font-style:italic;margin-bottom:52px;}
+
+.contact-methods{display:flex;flex-direction:column;gap:0;}
+.contact-method{display:flex;gap:22px;padding:28px 0;border-bottom:1px solid var(--border);align-items:flex-start;transition:padding-left 0.3s ease;}
+.contact-method:first-child{padding-top:0;}
+.contact-method:hover{padding-left:6px;}
+.cm-icon{width:42px;height:42px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;}
+.cm-icon::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);opacity:0.3;}
+.cm-icon svg{width:16px;height:16px;stroke:var(--gold-light);fill:none;stroke-width:1.8;}
+.cm-body{}
+.cm-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--light-gray);margin-bottom:5px;}
+.cm-value{font-size:15px;color:var(--charcoal);font-weight:500;line-height:1.5;}
+.cm-value a{color:var(--charcoal);text-decoration:none;transition:color 0.2s;}
+.cm-value a:hover{color:var(--gold);}
+.cm-sub{font-size:12.5px;color:var(--light-gray);margin-top:3px;}
+
+/* Social Links */
+.social-row{display:flex;gap:12px;margin-top:44px;}
+.social-link{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color 0.25s,background 0.25s,transform 0.2s;}
+.social-link:hover{border-color:var(--gold);background:var(--gold);transform:translateY(-2px);}
+.social-link:hover svg{stroke:var(--white);}
+.social-link svg{width:14px;height:14px;stroke:var(--mid-gray);fill:none;stroke-width:1.8;transition:stroke 0.25s;}
+
+/* ── ENQUIRY FORM ── */
+.enquiry-card{background:var(--cream);border:1px solid var(--border);padding:52px 48px;position:relative;overflow:hidden;}
+.enquiry-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--navy));}
+.enquiry-card .eyebrow{margin-bottom:10px;}
+.enquiry-card h2{font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--navy);margin-bottom:8px;line-height:1.2;}
+.enquiry-card p{font-size:14px;color:var(--mid-gray);margin-bottom:36px;line-height:1.75;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
+.form-group label{font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid-gray);font-weight:500;}
+.form-group input,
+.form-group select,
+.form-group textarea{width:100%;padding:13px 16px;border:1px solid var(--border);background:var(--white);font-family:var(--font-body);font-size:14px;color:var(--charcoal);outline:none;border-radius:2px;transition:border-color 0.25s,box-shadow 0.25s;appearance:none;-webkit-appearance:none;}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(196,151,62,0.1);}
+.form-group textarea{resize:vertical;min-height:110px;line-height:1.6;}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:var(--light-gray);}
+
+.enquiry-type-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.eq-tab{flex:1;padding:11px 14px;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;font-family:var(--font-body);background:var(--white);color:var(--mid-gray);border:none;cursor:pointer;transition:background 0.2s,color 0.2s;text-align:center;}
+.eq-tab.active{background:var(--navy);color:var(--white);}
+.eq-tab:not(:last-child){border-right:1px solid var(--border);}
+
+.btn-submit{width:100%;background:var(--navy);color:var(--white);border:none;padding:15px 32px;font-size:12.5px;font-family:var(--font-body);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:background 0.25s,transform 0.2s;margin-top:8px;position:relative;overflow:hidden;}
+.btn-submit:hover{background:var(--gold);transform:translateY(-1px);}
+.btn-submit::after{content:'→';margin-left:10px;display:inline-block;transition:transform 0.2s;}
+.btn-submit:hover::after{transform:translateX(4px);}
+
+.form-note{font-size:11.5px;color:var(--light-gray);text-align:center;margin-top:14px;line-height:1.6;}
+
+/* ── SUCCESS STATE ── */
+.form-success{display:none;text-align:center;padding:40px 20px;}
+.form-success .success-icon{width:60px;height:60px;border-radius:50%;background:rgba(196,151,62,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.form-success .success-icon svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:2;}
+.form-success h3{font-family:var(--font-display);font-size:26px;color:var(--navy);margin-bottom:10px;}
+.form-success p{color:var(--mid-gray);font-size:15px;}
+
+/* ── MAP SECTION ── */
+.map-section{padding:0 96px 108px;}
+.map-section .section-narrow{}
+.map-label{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:14px;}
+.map-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.map-title{font-family:var(--font-display);font-size:clamp(28px,3vw,40px);font-weight:400;color:var(--navy);margin-bottom:40px;}
+.map-split{display:grid;grid-template-columns:1fr 2fr;gap:0;border:1px solid var(--border);overflow:hidden;}
+.map-info{background:var(--navy);padding:52px 40px;display:flex;flex-direction:column;gap:0;}
+.map-info-item{padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.map-info-item:first-child{padding-top:0;}
+.map-info-item:last-child{border-bottom:none;padding-bottom:0;}
+.map-info-label{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;}
+.map-info-val{color:rgba(255,255,255,0.82);font-size:14px;line-height:1.7;}
+.map-info-val a{color:rgba(255,255,255,0.82);text-decoration:none;transition:color 0.2s;}
+.map-info-val a:hover{color:var(--gold-light);}
+.map-directions{margin-top:36px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.08);}
+.btn-directions{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:12px 22px;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;text-decoration:none;border-radius:2px;transition:background 0.25s,transform 0.2s;font-family:var(--font-body);}
+.btn-directions:hover{background:var(--gold-shimmer);transform:translateY(-1px);}
+.btn-directions svg{width:13px;height:13px;stroke:var(--white);fill:none;stroke-width:2;}
+.map-iframe-wrap{position:relative;overflow:hidden;}
+.map-iframe-wrap iframe{display:block;width:100%;height:460px;border:none;filter:grayscale(20%) contrast(1.05);}
+
+/* ── JOURNEY SECTION ── */
+.journey-section{background:var(--navy-deep);position:relative;overflow:hidden;padding:96px;}
+.journey-section::before{content:'';position:absolute;top:-120px;right:-120px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(196,151,62,0.07) 0%,transparent 70%);pointer-events:none;}
+.journey-section::after{content:'';position:absolute;bottom:-120px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,151,62,0.05) 0%,transparent 70%);pointer-events:none;}
+.journey-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1;}
+.journey-section .eyebrow{color:var(--gold-light);}
+.journey-section .eyebrow::before{background:var(--gold-light);}
+.journey-section .section-title{color:var(--white);}
+
+.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px;}
+.journey-card{background:rgba(255,255,255,0.04);padding:40px 32px;position:relative;overflow:hidden;transition:background 0.3s;}
+.journey-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--gold);transition:height 0.4s ease;}
+.journey-card:hover{background:rgba(255,255,255,0.07);}
+.journey-card:hover::before{height:100%;}
+.journey-card-icon{margin-bottom:24px;}
+.journey-card-icon svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+.journey-card h3{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--white);margin-bottom:14px;line-height:1.25;}
+.journey-card p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;}
+.journey-card .distance{margin-top:20px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{position:fixed;bottom:32px;right:32px;z-index:200;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(37,211,102,0.55);}
+.wa-float svg{width:26px;height:26px;fill:var(--white);}
+.wa-float-pulse{position:absolute;inset:0;border-radius:50%;background:#25D366;animation:waPulse 2.5s ease-out infinite;}
+@keyframes waPulse{0%{transform:scale(1);opacity:0.7;}100%{transform:scale(1.7);opacity:0;}}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-deep);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding:72px 96px 52px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.footer-brand .brand{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--white);margin-bottom:4px;}
+.footer-brand .tagline-footer{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-brand p{font-size:13.5px;color:rgba(255,255,255,0.42);line-height:1.8;max-width:280px;}
+.footer-col h4{font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);margin-bottom:22px;font-weight:500;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.footer-col ul li a{font-size:13.5px;color:rgba(255,255,255,0.42);text-decoration:none;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--gold-light);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:22px 96px;font-size:12px;color:rgba(255,255,255,0.25);}
+.footer-social{display:flex;gap:16px;}
+.footer-social a{width:30px;height:30px;border:1px solid rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,background 0.2s;}
+.footer-social a:hover{border-color:var(--gold);background:var(--gold);}
+.footer-social a:hover svg{stroke:var(--white);}
+.footer-social a svg{width:13px;height:13px;stroke:rgba(255,255,255,0.4);fill:none;stroke-width:2;transition:stroke 0.2s;}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .top-bar{padding:8px 24px;font-size:10.5px;}
+  .top-bar .top-bar-links{gap:16px;}
+  nav{padding:0 24px;}
+  .nav-links,.nav-cta{display:none;}
+  .nav-toggle{display:flex;}
+  .mobile-menu{position:fixed;inset:0;background:var(--navy-deep);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;transform:translateX(100%);transition:transform 0.35s ease;}
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--white);text-decoration:none;opacity:0.85;transition:color 0.2s,opacity 0.2s;}
+  .mobile-menu a:hover,.mobile-menu a.active{color:var(--gold-light);opacity:1;}
+  .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;padding:8px;}
+  .mobile-menu-close svg{width:24px;height:24px;stroke:var(--white);fill:none;stroke-width:1.5;}
+  .mobile-book{display:inline-block;margin-top:8px;background:var(--gold);color:var(--white);padding:13px 36px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;}
+  .page-hero-content{padding:0 32px 56px;}
+  .breadcrumb{padding:12px 24px;}
+  .section{padding:72px 24px;}
+  .contact-grid{grid-template-columns:1fr;gap:56px;}
+  .enquiry-card{padding:36px 24px;}
+  .form-row{grid-template-columns:1fr;}
+  .map-section{padding:0 24px 72px;}
+  .map-split{grid-template-columns:1fr;}
+  .map-iframe-wrap iframe{height:320px;}
+  .journey-section{padding:72px 24px;}
+  .journey-grid{grid-template-columns:1fr;gap:3px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px;padding:52px 24px 36px;}
+  .footer-bottom{flex-direction:column;gap:16px;padding:20px 24px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── LOADER ── -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-logo">Mahfil-e-Motijheel</div>
+  <div class="loader-bar"></div>
+  <div class="loader-tagline">Heritage Resort · Murshidabad</div>
+</div>
+
+<!-- ── TOP BAR ── -->
+<div class="top-bar">
+  <span>16, Vivekanand Road, Lalbagh, Murshidabad, WB 742149</span>
+  <div class="top-bar-links">
+    <a href="tel:+918001365365">+91 8001 365 365</a>
+    <div class="top-bar-divider"></div>
+    <a href="mailto:booking@motijheelpark.com">booking@motijheelpark.com</a>
+    <div class="top-bar-divider"></div>
+    <a href="https://motijheelpark.com/hotel/booking" target="_blank">Book Now</a>
+  </div>
+</div>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="about.html">Our Story</a>
+  <a href="room.html">Rooms</a>
+  <a href="service.html">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="https://motijheelpark.com/hotel/booking" class="mobile-book" target="_blank">Book Your Stay</a>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-emblem">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+    </div>
+    <div class="logo-text">
+      <div class="brand">Mahfil-e-Motijheel</div>
+      <div class="tagline">Heritage Resort · Murshidabad</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="room.html">Rooms</a></li>
+    <li><a href="service.html">Experiences</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="https://motijheelpark.com/hotel/booking" class="btn-book" target="_blank">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-overlay-bottom"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Reach Us</div>
+    <h1 class="page-hero-title">Come, <em>Be Our Guest</em></h1>
+  </div>
+</div>
+
+<!-- ── BREADCRUMB ── -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">›</span>
+  <span class="current">Contact &amp; Directions</span>
+</div>
+
+<!-- ── CONTACT SECTION ── -->
+<section class="section">
+  <div class="section-narrow">
+    <div class="contact-grid">
+
+      <!-- LEFT: CONTACT INFO -->
+      <div class="contact-sidebar fade-up">
+        <div class="eyebrow">We're Here For You</div>
+        <h2 class="section-title">Let's Plan<br>Your <em style="font-style:italic;color:var(--gold);">Perfect Stay</em></h2>
+        <p class="contact-intro">Whether you're planning a quiet retreat, a family celebration, or a grand wedding on the Bhagirathi — our team is ready to make every moment extraordinary.</p>
+
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+            </div>
+            <div class="cm-body">
+              <div class="cm-label">Phone &amp; WhatsApp</div>
+              <div class="cm-value"><a href="tel:+918001365365">+91 8001 365 365</a></div>
+              <div class="cm-sub">Available daily, 8 am – 9 pm IST</div>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="cm-body">
+              <div class="cm-label">Email Us</div>
+              <div class="cm-value"><a href="mailto:booking@motijheelpark.com">booking@motijheelpark.com</a></div>
+              <div class="cm-sub">We respond within 24 hours</div>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="cm-body">
+              <div class="cm-label">Address</div>
+              <div class="cm-value">16, Vivekanand Road, Haipatganj<br>Lalbagh, Murshidabad, WB 742149</div>
+              <div class="cm-sub">Near Motijheel Park, Lalbagh</div>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="cm-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div class="cm-body">
+              <div class="cm-label">Front Desk Hours</div>
+              <div class="cm-value">Open 24 Hours · Every Day</div>
+              <div class="cm-sub">Check-in from 12:00 noon · Check-out by 11:00 am</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/mahfilemotijheel" target="_blank" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/16fXpfbonL/" target="_blank" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/918001365365" target="_blank" class="social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: ENQUIRY FORM -->
+      <div class="enquiry-card fade-up" style="transition-delay:0.15s;">
+        <div id="formWrap">
+          <div class="eyebrow">Send an Enquiry</div>
+          <h2>Plan Your Visit</h2>
+          <p>Tell us how we can help and we'll get back to you promptly with everything you need.</p>
+
+          <!-- Enquiry Type Tabs -->
+          <div class="enquiry-type-tabs">
+            <button class="eq-tab active" data-tab="stay">Room Stay</button>
+            <button class="eq-tab" data-tab="event">Events &amp; Weddings</button>
+            <button class="eq-tab" data-tab="dining">Dining</button>
+            <button class="eq-tab" data-tab="general">General</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Your last name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp *</label>
+              <input type="tel" id="phone" placeholder="+91 ___________" required>
+            </div>
+          </div>
+
+          <!-- Stay Fields -->
+          <div id="tab-stay">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="checkin">Check-in Date</label>
+                <input type="date" id="checkin">
+              </div>
+              <div class="form-group">
+                <label for="checkout">Check-out Date</label>
+                <input type="date" id="checkout">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests">
+                  <option value="">Select guests</option>
+                  <option>1 Guest</option>
+                  <option>2 Guests</option>
+                  <option>3 Guests</option>
+                  <option>4 Guests</option>
+                  <option>5+ Guests</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="roomtype">Preferred Room Type</label>
+                <select id="roomtype">
+                  <option value="">Any room type</option>
+                  <option>Deluxe Room</option>
+                  <option>Superior Room</option>
+                  <option>Suite</option>
+                  <option>Family Room</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Fields -->
+          <div id="tab-event" style="display:none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event-date">Event Date</label>
+                <input type="date" id="event-date">
+              </div>
+              <div class="form-group">
+                <label for="event-size">Expected Guests</label>
+                <select id="event-size">
+                  <option value="">Select size</option>
+                  <option>Under 50</option>
+                  <option>50 – 150</option>
+                  <option>150 – 300</option>
+                  <option>300 – 500</option>
+                  <option>500+</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="event-type">Event Type</label>
+              <select id="event-type">
+                <option value="">Select event</option>
+                <option>Wedding</option>
+                <option>Reception</option>
+                <option>Birthday Celebration</option>
+                <option>Corporate Event</option>
+                <option>Family Gathering</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dining Fields -->
+          <div id="tab-dining" style="display:none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dining-date">Preferred Date</label>
+                <input type="date" id="dining-date">
+              </div>
+              <div class="form-group">
+                <label for="dining-covers">Number of Covers</label>
+                <select id="dining-covers">
+                  <option value="">Select covers</option>
+                  <option>1–2</option>
+                  <option>3–6</option>
+                  <option>7–15</option>
+                  <option>16+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:4px;">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us more about your plans, any special requests, or questions you may have…"></textarea>
+          </div>
+
+          <button class="btn-submit" id="submitBtn" type="button">Send Enquiry</button>
+          <p class="form-note">We typically respond within a few hours. Your details are kept private and never shared.</p>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+          </div>
+          <h3>Thank You!</h3>
+          <p>Your enquiry has been received. Our team will be in touch with you shortly — usually within a few hours.</p>
+        </div>
+      </div>
+
+    </div><!-- /.contact-grid -->
+  </div>
+</section>
+
+<!-- ── MAP SECTION ── -->
+<div class="map-section">
+  <div class="section-narrow">
+    <div class="fade-up">
+      <div class="map-label">Find Us</div>
+      <h2 class="map-title">In the Heart of <em style="font-family:var(--font-display);font-style:italic;color:var(--gold);">Nawabi Bengal</em></h2>
+    </div>
+    <div class="map-split fade-up" style="transition-delay:0.1s;">
+      <div class="map-info">
+        <div class="map-info-item">
+          <div class="map-info-label">Address</div>
+          <div class="map-info-val">16, Vivekanand Road<br>Haipatganj, Lalbagh<br>Murshidabad, WB 742149</div>
+        </div>
+        <div class="map-info-item">
+          <div class="map-info-label">Berhampore</div>
+          <div class="map-info-val">~8 km south · ~20 min</div>
+        </div>
+        <div class="map-info-item">
+          <div class="map-info-label">Jiaganj – Azimganj</div>
+          <div class="map-info-val">~12 km north · ~30 min</div>
+        </div>
+        <div class="map-info-item">
+          <div class="map-info-label">Nearest Railway</div>
+          <div class="map-info-val">Lalbagh Court Road Station<br>~2 km · 5 min</div>
+        </div>
+        <div class="map-info-item">
+          <div class="map-info-label">Nearest Airport</div>
+          <div class="map-info-val">Netaji Subhash Chandra Bose<br>Kolkata · ~200 km</div>
+        </div>
+        <div class="map-directions">
+          <a href="https://maps.google.com/?q=Mahfil-e-Motijheel,Lalbagh,Murshidabad" target="_blank" class="btn-directions">
+            <svg viewBox="0 0 24 24"><polygon points="3,11 22,2 13,21 11,13 3,11"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+      <div class="map-iframe-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.7!2d88.2678!3d24.1754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f97b60e0f7df1d%3A0x1f4ee0e5b1c9bda0!2sMOTIJHEEL%20PARK%2C%20LALBAGH%2C%20MURSHIDABAD!5e0!3m2!1sen!2sin!4v1680000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mahfil-e-Motijheel location map">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GETTING HERE ── -->
+<section class="journey-section">
+  <div class="journey-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Getting Here</div>
+      <h2 class="section-title">Your Journey to <em style="font-style:italic;color:var(--gold-light);">Murshidabad</em></h2>
+    </div>
+    <div class="journey-grid stagger">
+      <div class="journey-card">
+        <div class="journey-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/><path d="M6 7V5"/><path d="M18 7V5"/></svg>
+        </div>
+        <h3>By Train</h3>
+        <p>Take any train to Lalbagh Court Road Station or Berhampore Court, both well-connected from Kolkata (Sealdah/Howrah). From the station, we're just a short 5–20 minute auto ride away.</p>
+        <div class="distance">Kolkata → ~3.5 hrs by Hazarduari Express</div>
+      </div>
+      <div class="journey-card">
+        <div class="journey-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>
+        </div>
+        <h3>By Road</h3>
+        <p>Drive along NH12 from Kolkata — the scenic route passes through Plassey, Krishnanagar, and Berhampore. Several private bus services also run from Kolkata's Esplanade terminal daily.</p>
+        <div class="distance">Kolkata → ~200 km · ~4–5 hrs</div>
+      </div>
+      <div class="journey-card">
+        <div class="journey-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M21.5 2l-2.2 20.4a.5.5 0 01-.9.2L12 15l-6.4 7.6a.5.5 0 01-.9-.2L2.5 2"/><path d="M2.5 2h19"/></svg>
+        </div>
+        <h3>By Air</h3>
+        <p>Fly into Netaji Subhash Chandra Bose International Airport, Kolkata. From there, take the train or hire a private car to reach Murshidabad. We're happy to help arrange transfers upon request.</p>
+        <div class="distance">Kolkata Airport → ~210 km · Transfers available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a href="https://wa.me/918001365365" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <div class="wa-float-pulse"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand">Mahfil-e-Motijheel</div>
+      <div class="tagline-footer">Heritage Resort · Est. Murshidabad</div>
+      <p>A resort woven into the living history of Nawabi Bengal — where every gathering becomes a cherished memory.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="room.html">Rooms &amp; Suites</a></li>
+        <li><a href="service.html">Dining</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Location</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Plan Your Stay</h4>
+      <ul>
+        <li><a href="https://motijheelpark.com/hotel/booking">Book Online</a></li>
+        <li><a href="contact.html">Group Bookings</a></li>
+        <li><a href="service.html">Events &amp; Parties</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+        <li><a href="Terms & Condition.html">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html">Support</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mahfil-e-Motijheel. All rights reserved. Developed by <a href="https://insighthms.com/" style="color:var(--gold);text-decoration:none;">Insight Software</a>.</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mahfilemotijheel" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/16fXpfbonL/" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://wa.me/918001365365" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── PAGE LOADER ──
+window.addEventListener('load', () => {
+  setTimeout(() => { document.getElementById('pageLoader').classList.add('done'); }, 1400);
+});
+
+// ── NAV SCROLL ──
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── MOBILE MENU ──
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileMenuClose').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+});
+
+// ── SCROLL ANIMATIONS ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+
+// ── ENQUIRY TYPE TABS ──
+const tabs = document.querySelectorAll('.eq-tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    ['stay','event','dining'].forEach(id => {
+      const el = document.getElementById('tab-' + id);
+      if (el) el.style.display = 'none';
+    });
+    const target = document.getElementById('tab-' + tab.dataset.tab);
+    if (target) target.style.display = 'block';
+  });
+});
+
+// ── DATE DEFAULTS ──
+const today = new Date().toISOString().split('T')[0];
+const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+['checkin','event-date','dining-date'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) { el.min = today; el.value = today; }
+});
+const co = document.getElementById('checkout');
+if (co) { co.min = tomorrow; co.value = tomorrow; }
+
+// ── FORM SUBMIT (simulation — replace with real endpoint) ──
+document.getElementById('submitBtn').addEventListener('click', () => {
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if (!fname || !email || !phone) {
+    alert('Please fill in your name, email, and phone number to send your enquiry.');
+    return;
+  }
+  // In production: replace with fetch() to your booking API or form handler
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+});
+
+// ── CHECKIN/OUT GUARD ──
+const checkinEl = document.getElementById('checkin');
+const checkoutEl = document.getElementById('checkout');
+if (checkinEl && checkoutEl) {
+  checkinEl.addEventListener('change', () => {
+    const nextDay = new Date(checkinEl.value);
+    nextDay.setDate(nextDay.getDate() + 1);
+    checkoutEl.min = nextDay.toISOString().split('T')[0];
+    if (checkoutEl.value <= checkinEl.value) {
+      checkoutEl.value = nextDay.toISOString().split('T')[0];
+    }
+  });
+}
+</script>
+</body>
+</html>
