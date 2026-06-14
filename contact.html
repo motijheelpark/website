@@ -39,6 +39,20 @@ body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);
 .top-bar-links{display:flex;gap:28px;align-items:center;}
 .top-bar-divider{width:1px;height:12px;background:rgba(255,255,255,0.15);}
 
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="about.html">Our Story</a>
+  <a href="room.html">Rooms</a>
+  <a href="service.html">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="https://motijheelpark.com/hotel/booking" class="mobile-book" target="_blank">Book Your Stay</a>
+</div>
+  
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;transition:box-shadow 0.3s ease;}
 nav.scrolled{box-shadow:0 4px 24px rgba(13,30,53,0.08);}
