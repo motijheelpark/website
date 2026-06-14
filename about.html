@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story | Mahfil-e-Motijheel Heritage Resort, Murshidabad</title>
+<meta name="description" content="Discover the story of Mahfil-e-Motijheel — a heritage resort born from Murshidabad's Nawabi legacy, where history and hospitality meet on the banks of the Bhagirathi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0d1e35;--navy-deep:#081426;--navy-mid:#183356;
+  --gold:#c4973e;--gold-light:#ddb96b;--gold-pale:#f6edd9;--gold-shimmer:#e8c97a;
+  --cream:#faf7f2;--white:#ffffff;--charcoal:#272727;--mid-gray:#6a6a6a;
+  --light-gray:#9a9a9a;--border:#e4ddd4;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-accent:'Lora',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);line-height:1.6;font-size:15px;overflow-x:hidden;}
+
+/* LOADER */
+.page-loader{position:fixed;inset:0;background:var(--navy-deep);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity 0.6s ease,visibility 0.6s ease;}
+.page-loader.done{opacity:0;visibility:hidden;}
+.loader-logo{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--white);letter-spacing:0.04em;opacity:0;transform:translateY(12px);animation:loaderFadeIn 0.7s 0.2s forwards;}
+.loader-tagline{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);opacity:0;animation:loaderFadeIn 0.7s 0.5s forwards;}
+.loader-bar{width:140px;height:1px;background:rgba(255,255,255,0.15);position:relative;overflow:hidden;opacity:0;animation:loaderFadeIn 0.4s 0.6s forwards;}
+.loader-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);animation:loaderScan 1.2s 0.7s ease-in-out forwards;}
+@keyframes loaderFadeIn{to{opacity:1;transform:translateY(0);}}
+@keyframes loaderScan{to{left:200%;}}
+
+/* TOP BAR */
+.top-bar{background:var(--navy-deep);color:rgba(255,255,255,0.6);font-size:11.5px;letter-spacing:0.04em;display:flex;justify-content:space-between;align-items:center;padding:9px 48px;}
+.top-bar a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.top-bar a:hover{color:var(--gold-light);}
+.top-bar-links{display:flex;gap:28px;align-items:center;}
+.top-bar-divider{width:1px;height:12px;background:rgba(255,255,255,0.15);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;transition:box-shadow 0.3s ease;}
+nav.scrolled{box-shadow:0 4px 24px rgba(13,30,53,0.08);}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0;}
+.logo-emblem{width:46px;height:46px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.logo-emblem::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);opacity:0.4;}
+.logo-emblem svg{width:22px;height:22px;fill:var(--gold-light);}
+.logo-text{line-height:1.2;}
+.logo-text .brand{font-family:var(--font-display);font-size:17px;font-weight:500;color:var(--navy);letter-spacing:0.01em;}
+.logo-text .tagline{font-size:9.5px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;font-weight:500;position:relative;padding-bottom:3px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease;}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{display:flex;align-items:center;gap:12px;}
+.btn-book{background:var(--navy);color:var(--white);border:none;padding:11px 24px;font-size:12px;font-family:var(--font-body);font-weight:500;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.25s,transform 0.2s;border-radius:2px;display:inline-block;}
+.btn-book:hover{background:var(--gold);transform:translateY(-1px);}
+
+/* PAGE HERO */
+.page-hero{position:relative;height:62vh;min-height:440px;overflow:hidden;display:flex;align-items:flex-end;}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('media/Mahefile_Resorts_Pictures/Balcony.jpeg');}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,20,38,0.85) 0%,rgba(8,20,38,0.45) 60%,rgba(8,20,38,0.2) 100%);}
+.page-hero-overlay-bottom{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,38,0.7) 0%,transparent 50%);}
+.page-hero-content{position:relative;z-index:2;padding:0 96px 80px;color:var(--white);}
+.page-hero-eyebrow{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:14px;opacity:0;transform:translateY(12px);animation:heroIn 0.8s 0.3s forwards;}
+.page-hero-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--gold-light);}
+.page-hero-title{font-family:var(--font-display);font-size:clamp(40px,5.5vw,68px);font-weight:400;line-height:1.1;opacity:0;transform:translateY(16px);animation:heroIn 0.9s 0.5s forwards;}
+.page-hero-title em{font-style:italic;color:var(--gold-light);}
+@keyframes heroIn{to{opacity:1;transform:translateY(0);}}
+
+/* BREADCRUMB */
+.breadcrumb{background:var(--cream);padding:14px 96px;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;font-size:12px;color:var(--light-gray);}
+.breadcrumb a{color:var(--light-gray);text-decoration:none;transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb .sep{opacity:0.4;}
+.breadcrumb .current{color:var(--navy);font-weight:500;}
+
+/* SECTIONS */
+.section{padding:108px 96px;}
+.section-narrow{max-width:1160px;margin:0 auto;}
+.eyebrow{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.section-title{font-family:var(--font-display);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.13;color:var(--navy);margin-bottom:22px;}
+.section-lead{font-size:16px;color:var(--mid-gray);line-height:1.85;max-width:600px;font-weight:300;font-family:var(--font-accent);font-style:italic;}
+
+/* STORY SPLIT */
+.story-split{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;}
+.story-images{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:300px 200px;gap:10px;}
+.story-img{background-size:cover;background-position:center;border-radius:2px;overflow:hidden;transition:transform 0.5s ease;position:relative;}
+.story-img::after{content:'';position:absolute;inset:0;background:var(--gold);opacity:0;transition:opacity 0.4s;}
+.story-img:hover::after{opacity:0.06;}
+.story-img:hover{transform:scale(1.015);}
+.story-img:nth-child(1){grid-column:1/-1;background-image:url('media/Room_Photos/room.jpeg');}
+.story-img:nth-child(2){background-image:url('media/boatexterior.jpeg');}
+.story-img:nth-child(3){background-image:url('https://motijheelpark.com/LA%20MISHIKA%20IMAGE/pic11.jpg');}
+.story-text p{font-size:16px;line-height:1.9;color:var(--mid-gray);font-weight:300;margin-bottom:20px;}
+.story-text p:first-of-type{font-family:var(--font-accent);font-style:italic;font-size:17px;color:var(--charcoal);}
+
+/* STATS */
+.stats-row{display:flex;gap:0;margin-top:52px;padding-top:40px;border-top:1px solid var(--border);}
+.stat{flex:1;padding:0 32px 0 0;border-right:1px solid var(--border);}
+.stat:first-child{padding-left:0;}
+.stat:last-child{border-right:none;padding-right:0;}
+.stat-number{font-family:var(--font-display);font-size:44px;font-weight:400;color:var(--navy);line-height:1;letter-spacing:-0.02em;}
+.stat-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--light-gray);margin-top:7px;}
+
+/* HERITAGE SECTION */
+.heritage-section{background:var(--navy-deep);position:relative;overflow:hidden;}
+.heritage-section::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,151,62,0.07) 0%,transparent 70%);pointer-events:none;}
+.heritage-section .section-title{color:var(--white);}
+.heritage-section .eyebrow{color:var(--gold-light);}
+.heritage-section .eyebrow::before{background:var(--gold-light);}
+.heritage-section .section-lead{color:rgba(255,255,255,0.58);}
+
+.heritage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:60px;}
+.heritage-card{background:rgba(255,255,255,0.04);padding:44px 36px;transition:background 0.3s,transform 0.3s;position:relative;overflow:hidden;}
+.heritage-card::after{content:'';position:absolute;bottom:0;left:36px;right:36px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s ease;transform-origin:left;}
+.heritage-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px);}
+.heritage-card:hover::after{transform:scaleX(1);}
+.heritage-num{font-family:var(--font-display);font-size:54px;font-weight:400;color:var(--gold);opacity:0.2;line-height:1;margin-bottom:20px;}
+.heritage-card h3{font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--white);margin-bottom:14px;}
+.heritage-card p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;}
+
+/* VISION */
+.vision-section{background:var(--cream);}
+.vision-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.vision-img{height:500px;background-size:cover;background-position:center;background-image:url('media/Mahefile_Resorts_Pictures/view.jpeg');border-radius:2px;position:relative;overflow:hidden;}
+.vision-img::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(8,20,38,0.35) 100%);}
+.vision-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(196,151,62,0.25);border-radius:2px;pointer-events:none;}
+.vision-text p{font-size:16px;line-height:1.9;color:var(--mid-gray);font-weight:300;margin-bottom:20px;}
+.vision-quote{border-left:3px solid var(--gold);padding-left:28px;margin:36px 0;font-family:var(--font-display);font-size:22px;font-style:italic;color:var(--navy);line-height:1.55;}
+
+/* TEAM / PROMISE */
+.promise-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px;}
+.promise-card{background:var(--white);border:1px solid var(--border);padding:36px 28px;text-align:center;transition:box-shadow 0.3s,transform 0.3s;}
+.promise-card:hover{box-shadow:0 12px 40px rgba(13,30,53,0.08);transform:translateY(-4px);}
+.promise-icon{width:56px;height:56px;border:1px solid rgba(196,151,62,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.promise-icon svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+.promise-card h4{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--navy);margin-bottom:12px;}
+.promise-card p{font-size:13.5px;color:var(--mid-gray);line-height:1.75;}
+
+/* TESTIMONIAL */
+.testimonial-section{background:var(--gold-pale);text-align:center;padding:100px 96px;position:relative;overflow:hidden;}
+.testimonial-section::before{content:'❝';position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-size:140px;color:var(--gold);opacity:0.07;line-height:1;pointer-events:none;}
+.testimonial-section blockquote{font-family:var(--font-display);font-size:clamp(22px,3vw,36px);font-weight:400;font-style:italic;color:var(--navy);line-height:1.55;max-width:820px;margin:0 auto 28px;}
+.testimonial-section cite{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-style:normal;}
+.ornament{text-align:center;font-size:16px;color:var(--gold);letter-spacing:0.4em;margin-bottom:52px;opacity:0.5;}
+
+/* FOOTER */
+footer{background:var(--navy-deep);color:rgba(255,255,255,0.65);padding:72px 96px 36px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.footer-brand .brand{font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--white);margin-bottom:6px;}
+.footer-brand .tagline-footer{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
+.footer-brand p{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,0.45);max-width:270px;}
+.footer-col h4{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:22px;font-weight:500;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.footer-col ul li a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13.5px;transition:color 0.2s,padding-left 0.2s;display:block;}
+.footer-col ul li a:hover{color:var(--gold-light);padding-left:4px;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,0.28);}
+.footer-social{display:flex;gap:14px;}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:border-color 0.25s,color 0.25s,transform 0.2s;}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+
+/* BUTTONS */
+.btn-primary{background:var(--gold);color:var(--white);border:none;padding:15px 36px;font-family:var(--font-body);font-size:12.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.25s,transform 0.2s,box-shadow 0.25s;border-radius:2px;display:inline-block;}
+.btn-primary:hover{background:var(--gold-shimmer);transform:translateY(-2px);box-shadow:0 8px 28px rgba(196,151,62,0.35);}
+.btn-outline{border:1px solid var(--navy);color:var(--navy);padding:13px 30px;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:background 0.25s,color 0.25s;border-radius:2px;display:inline-block;}
+.btn-outline:hover{background:var(--navy);color:var(--white);}
+
+/* ANIMATIONS */
+@media(prefers-reduced-motion:no-preference){
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.75s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+  .stagger>*{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .stagger.visible>*{opacity:1;transform:translateY(0);}
+  .stagger.visible>*:nth-child(1){transition-delay:0s;}
+  .stagger.visible>*:nth-child(2){transition-delay:0.12s;}
+  .stagger.visible>*:nth-child(3){transition-delay:0.24s;}
+  .stagger.visible>*:nth-child(4){transition-delay:0.36s;}
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav,.top-bar,.breadcrumb{padding-left:32px;padding-right:32px;}
+  .section{padding:80px 40px;}
+  .page-hero-content{padding:0 48px 64px;}
+  .story-split,.vision-split{grid-template-columns:1fr;gap:56px;}
+  .heritage-grid{grid-template-columns:1fr;}
+  .promise-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px;}
+  footer{padding-left:40px;padding-right:40px;}
+  .testimonial-section{padding:80px 48px;}
+}
+@media(max-width:768px){
+  .top-bar{display:none;}
+  nav{padding:0 24px;height:64px;}
+  .nav-links{display:none;}
+  .section{padding:64px 24px;}
+  .breadcrumb{padding:12px 24px;}
+  .page-hero-content{padding:0 24px 56px;}
+  .story-images{grid-template-rows:240px 160px;}
+  .stats-row{flex-wrap:wrap;gap:24px;}
+  .stat{min-width:40%;border-right:none;padding-right:0;}
+  .promise-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;gap:36px;}
+  footer{padding:56px 24px 28px;}
+  .footer-bottom{flex-direction:column;gap:20px;text-align:center;}
+  .testimonial-section{padding:64px 24px;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-loader" id="pageLoader">
+  <div class="loader-logo">Mahfil-e-Motijheel</div>
+  <div class="loader-tagline">Heritage Resort · Murshidabad</div>
+  <div class="loader-bar"></div>
+</div>
+
+<div class="top-bar">
+  <span>Motijheel, Lalbagh, Murshidabad, West Bengal 742149</span>
+  <div class="top-bar-links">
+    <a href="tel:+918001365365">+91 8001 365 365</a>
+    <div class="top-bar-divider"></div>
+    <a href="mailto:booking@motijheelpark.com">booking@motijheelpark.com</a>
+    <div class="top-bar-divider"></div>
+    <a href="https://www.instagram.com/mahfilemotijheel" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/share/16fXpfbonL/" target="_blank">Facebook</a>
+  </div>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-emblem">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2 L14.5 8.5 L21 8.5 L15.8 12.5 L17.9 19 L12 15.2 L6.1 19 L8.2 12.5 L3 8.5 L9.5 8.5 Z"/></svg>
+    </div>
+    <div class="logo-text">
+      <div class="brand">Mahfil-e-Motijheel</div>
+      <div class="tagline">Heritage Resort · Murshidabad</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="room.html">Rooms</a></li>
+    <li><a href="service.html">Experiences</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="https://motijheelpark.com/hotel/booking" class="btn-book">Book a Stay</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-overlay-bottom"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Murshidabad, West Bengal</div>
+    <h1 class="page-hero-title">A Story Woven Into<br>the <em>Nawabi Earth</em></h1>
+  </div>
+</section>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">›</span>
+  <span class="current">About Us</span>
+</div>
+
+<!-- OUR STORY -->
+<section class="section">
+  <div class="section-narrow">
+    <div class="story-split fade-up">
+      <div class="story-images">
+        <div class="story-img"></div>
+        <div class="story-img"></div>
+        <div class="story-img"></div>
+      </div>
+      <div class="story-text">
+        <div class="eyebrow">Our Story</div>
+        <h2 class="section-title">Born from the<br>Pearl Lake of Bengal</h2>
+        <p>Motijheel — the Pearl Lake — was once a jewel in the crown of Nawab Siraj ud-Daulah's Murshidabad. It was here, surrounded by the grandeur of a vanished empire, that a dream took root: to create a gathering place worthy of this sacred ground.</p>
+        <p>Mahfil-e-Motijheel was built not merely as a resort, but as a living tribute to Murshidabad's cultural legacy — a place where the warmth of Bengali hospitality meets the grandeur of Nawabi architecture, where guests don't just visit, they belong.</p>
+        <p>Today, our resort stands at the crossroads of three historic municipalities — Berhampore, Jiaganj-Azimganj, and Murshidabad — welcoming travellers who seek something deeper than a hotel stay: a genuine encounter with history, nature, and the unhurried grace of the Bhagirathi.</p>
+
+        <div class="stats-row stagger">
+          <div class="stat">
+            <div class="stat-number">41</div>
+            <div class="stat-label">Luxury Rooms</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">House Boats</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Banquet Seats</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Memories Made</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE PILLARS -->
+<section class="section heritage-section">
+  <div class="section-narrow">
+    <div class="fade-up">
+      <div class="eyebrow">What Defines Us</div>
+      <h2 class="section-title">Three Centuries of<br>Heritage in Every Corner</h2>
+      <p class="section-lead">Murshidabad carries the weight of empires — and Mahfil-e-Motijheel carries that legacy forward through three founding convictions.</p>
+    </div>
+    <div class="heritage-grid stagger">
+      <div class="heritage-card">
+        <div class="heritage-num">01</div>
+        <h3>Place &amp; History</h3>
+        <p>Our address is not accidental. Motijheel was the recreational lake of the last independent Nawab of Bengal. When you walk our grounds, you walk where history was made. Every garden path, every river-facing corridor is a conversation with the past.</p>
+      </div>
+      <div class="heritage-card">
+        <div class="heritage-num">02</div>
+        <h3>Warmth &amp; Welcome</h3>
+        <p>Bengali hospitality is not a policy — it is a philosophy. At Mahfil-e-Motijheel, every meal is made like it's for family, every greeting carries genuine warmth. Our team is rooted in the same community that built this land over generations.</p>
+      </div>
+      <div class="heritage-card">
+        <div class="heritage-num">03</div>
+        <h3>Rest &amp; Renewal</h3>
+        <p>In the age of constant motion, we are a pause. River breezes carry the scent of mustard fields. Mornings begin slowly, over chai and birdsong. Our resort was designed to give you back the time and stillness that modern life takes away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VISION -->
+<section class="section vision-section">
+  <div class="section-narrow">
+    <div class="vision-split fade-up">
+      <div class="vision-img"></div>
+      <div>
+        <div class="eyebrow">Our Vision</div>
+        <h2 class="section-title">Heritage Kept<br>Beautifully Alive</h2>
+        <p class="vision-text"><p>We believe that the best way to honour a historical place is to make it breathe again — not as a museum, but as a living, welcoming space where culture is felt and shared every day.</p></p>
+        <div class="vision-quote">"A mahfil is a gathering — of people, of stories, of music, of memory. We wanted this resort to be exactly that."</div>
+        <p style="font-size:14px;color:var(--mid-gray);line-height:1.8;margin-bottom:36px;">Every design choice, from the arched corridors to the lantern-lit gardens, is inspired by Nawabi Murshidabad's architectural vocabulary. Our rooms carry names drawn from the cultural life of the Nawabs — poetry, music, craftsmanship, river.</p>
+        <a href="room.html" class="btn-primary">Explore Our Rooms</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROMISE -->
+<section class="section">
+  <div class="section-narrow">
+    <div class="fade-up">
+      <div class="eyebrow">Our Promise</div>
+      <h2 class="section-title">What Every Guest<br>Can Expect</h2>
+    </div>
+    <div class="promise-grid stagger">
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Genuine Safety</h4>
+        <p>A secure, well-maintained resort where every family, couple, and solo traveller feels truly at ease.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h4>Personal Hospitality</h4>
+        <p>We remember your name, your preferences, your story. Every return visit feels like coming home.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h4>Unhurried Time</h4>
+        <p>No clocks, no rush. We are a slow resort — designed for people who want to truly arrive somewhere.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h4>Comfort &amp; Quality</h4>
+        <p>From freshly laundered linens to freshly ground spices — no detail in your comfort is left to chance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-section fade-up">
+  <div class="ornament">✦ ✦ ✦</div>
+  <blockquote>"Motijheel isn't just a place — it's a feeling. The kind of feeling you carry home and keep returning to."</blockquote>
+  <cite>A guest from Dhaka · December 2024</cite>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand">Mahfil-e-Motijheel</div>
+      <div class="tagline-footer">Heritage Resort · Est. Murshidabad</div>
+      <p>A resort woven into the living history of Nawabi Bengal — where every gathering becomes a cherished memory.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="room.html">Rooms &amp; Suites</a></li>
+        <li><a href="service.html">Dining</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Location</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Plan Your Stay</h4>
+      <ul>
+        <li><a href="https://motijheelpark.com/hotel/booking">Book Online</a></li>
+        <li><a href="contact.html">Group Bookings</a></li>
+        <li><a href="service.html">Events &amp; Parties</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+        <li><a href="Terms & Condition.html">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html">Support</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mahfil-e-Motijheel. All rights reserved. Developed by <a href="https://insighthms.com/" style="color:var(--gold);text-decoration:none;">Insight Software</a>.</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mahfilemotijheel" target="_blank" aria-label="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/16fXpfbonL/" target="_blank" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://wa.me/918001365365" target="_blank" aria-label="WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('pageLoader').classList.add('done');},1400);});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.fade-up,.stagger').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
+HTMLEOF
+echo "about.html done"
